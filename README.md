@@ -7,3 +7,10 @@ this is dev
 
 //这个是从自己的gitlab里面 git clone 下来的
 //hahahahahha
+//git branch 
+//git branch -a
+//git checkout -b 新分支
+//git push origin 新分支
+//git branch -d 分支名
+//git push origin --delete 分支名
+//history 获取所以敲打的命令
