@@ -14,3 +14,5 @@ this is dev
 //git branch -d 分支名
 //git push origin --delete 分支名
 //history 获取所以敲打的命令
+//git checkout 分支名
+// git merge origin 分支名字    然后push 到远程
