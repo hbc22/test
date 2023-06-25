@@ -16,6 +16,8 @@ this is dev
 //history 获取所以敲打的命令
 //git checkout 分支名
 // git merge origin 分支名字    然后push 到远程
+
+// 今天2023/06/25 
 <!-- 
 很多时候，我们并不需要所有文件都需要git add，尤其当我们使用git add -A的时候，这个命令是选择所有文件进入stage状态。有什么办法可以避免？那就是配置.gitignore文件
 
