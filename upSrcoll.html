@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>向上滚动</title>
+</head>
+
+<body>
+  <div class="scroll-box">
+    <!-- <ul class="scroll-list" :class="scroll ? 'scroll' : ''">
+      <li v-for="(item, index) in scrollList" :key="'scroll-list-item' + index">
+        恭喜{{ item.nickName }} 通过邀请赚取了{{
+        item.totalXTicket / 10
+        }}水晶
+      </li>
+    </ul> -->
+  </div>
+  <script>
+    window.onload = function () {
+      let scroll = false
+      let scrollList = [
+        {
+          nickName: "*傅",
+          totalXTicket: 250
+        },
+        {
+          nickName: "*祖",
+          totalXTicket: 20
+        },
+        {
+          nickName: "***啊",
+          totalXTicket: 210
+        },
+        {
+          nickName: "***哈",
+          totalXTicket: 50
+        },
+      ];
+
+      if (window.scrollTimer) {
+        clearInterval(window.scrollTimer);
+        window.scrollTimer = null;
+      }
+
+      window.scrollTimer = setInterval(() => {
+        scroll = true;
+        setTimeout(() => {
+          console.log('dd')
+          scrollList.push(scrollList.shift());
+          scroll = false;
+          console.log('dd', scrollList)
+        }, 1000);
+
+        console.log('22', scroll)
+      }, 2000);
+
+      let str;
+      console.log('11', scroll)
+      for (var i = 0; i < scrollList.length; i++) {
+        if (scroll) {
+          str =
+            `<ul class="scroll-list scroll">
+              <li>
+                恭喜 ${scrollList[i].nickName} 通过邀请赚取了${scrollList[i].totalXTicket / 10}水晶
+              </li>
+            </ul>`
+        } else {
+          str =
+            `<ul class="scroll-list">
+              <li>恭喜 ${scrollList[i].nickName} 通过邀请赚取了${scrollList[i].totalXTicket / 10}水晶</li>
+            </ul>`
+        }
+      }
+      document.querySelector('.scroll-box').innerHTML = str;
+    }
+  </script>
+  <style>
+    .scroll-box {
+      width: 480px;
+      height: 48px;
+      border-radius: 24px 24px;
+      margin-top: 32px;
+      background: rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+
+      ul {
+        width: 100%;
+
+        li {
+          width: 100%;
+          height: 48px;
+          line-height: 48px;
+          padding: 0 20px;
+          font-size: 22px;
+          color: #fff;
+          text-align: center;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
+
+      ul.scroll {
+        margin-top: -48px;
+        transition: 1s all;
+      }
+    }
+  </style>
+</body>
+
+</html>
